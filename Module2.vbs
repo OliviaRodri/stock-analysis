@@ -1,22 +1,36 @@
 'for loops*********************************
 Sub volume()
-  'Declare variables
-  Dim totalvolume, rowStart, rowEnd As Integer
-  'initialize variables
-  rowStart = 2
-  rowEnd = 3013
-  totalvolume = 0 
-  Worksheets("2018").Activate
-  For i = rowStart To rowEnd
-    'increase totalVolume if ticker is "DQ"
-    If Cells(i, 1).Value ="DQ" Then
-      totalvolume = totalvolume + Cells(i, 8).Value
-    End If
-  Next i
-  'MsgBox (totalvolume)
-  Worksheets("DQ Analysis").Activate
-  Cells(4, 1).Value = 2018
-  Cells(4, 2).Value = totalVolume
+	'Declare variables
+	Dim totalvolume, rowStart, rowEnd As Integer
+	Dim startingPrice As Double
+	Dim endingPrice As Double
+	'initialize variables
+	startingPrice = 0
+	rowStart = 2
+	'rowEnd = 3013
+	Worksheets("2018").Activate
+	rowEnd = Cells(Rows.Count, "A").End(xlUp).Row
+	totalvolume = 0 
+	For i = rowStart To rowEnd
+		'increase totalVolume if ticker is "DQ"
+		If Cells(i, 1).Value ="DQ" Then
+			totalvolume = totalvolume + Cells(i, 8).Value
+		End If
+		If Cells(i, 1).Value = "DQ" And Cells(i - 1, 1).Value <> "DQ" Then
+
+			startingPrice = Cells(i, 6).Value 
+
+		End If
+		If Cells(i, 1).Value = "DQ" And Cells(i + 1, 1).Value <> "DQ" Then
+
+			endingPrice = Cells(i, 6).Value
+		End If
+	Next i
+    Worksheets("DQ Analysis").Activate
+    Cells(4, 1).Value = 2018
+    Cells(4, 2).Value = totalVolume
+    Cells(4, 3).Value = endingPrice / startingPrice - 1	
+	'MsgBox (totalvolume)
 
 End Sub
 
