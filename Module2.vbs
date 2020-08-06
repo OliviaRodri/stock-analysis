@@ -34,6 +34,35 @@ Sub volume()
 
 End Sub
 
+Sub AllStocksAnalysis()
+
+    Worksheets("All Stocks Analysis").Activate
+
+    Range("A1").Value = "All Stocks (2018)"
+
+    'Create a header row
+    Cells(3, 1).Value = "Ticker"
+    Cells(3, 2).Value = "Total Daily Volume"
+    Cells(3, 3).Value = "Return"
+End Sub
+
+
+Sub SkillDrill()
+	'write 1 into A1 - J10, A1 is (1, 1) J10 is (10, 10)
+    For row = 1 To 10
+
+        'a line of code here will run 10 times
+
+    	For clmn = 1 To 10
+
+            cells(row, clmn) = 1
+
+        Next j
+
+    Next i
+
+End Sub
+
 
 'If then Conditionals***************************
 
