@@ -1,3 +1,70 @@
+Sub StaticFormatting()
+    'Visual Formatting
+    Worksheets("All Stocks Analysis").Activate
+    Range("A3:C3").Font.Bold = True
+    Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous
+    'Numeric Formatting
+    Worksheets("All Stocks Analysis").Activate
+    Range("A3:C3").Font.FontStyle = "Bold"
+    Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous
+    Range("B4:B15").NumberFormat = "$#,##0.00"
+    Range("C4:C15").NumberFormat = "0.00%"
+    Columns("B").Autofit
+    Dim dataRowStart, dateRowEnd As Integer
+    dataRowStart = 4
+    dataRowEnd = 15
+    For i = dataRowStart To dataRowEnd
+
+        If Cells(i, 3) > 0 Then
+
+            'Color the cell green
+            Cells(i, 3).Interior.Color = vbGreen
+
+        ElseIf Cells(i, 3) < 0 Then
+
+            'Color the cell red
+            Cells(i, 3).Interior.Color = vbRed
+
+        Else
+
+            'Clear the cell color
+            Cells(i, 3).Interior.Color = xlNone
+
+        End If
+
+    Next i    
+
+End Sub    
+
+Sub CheckersSkillDrill()
+    '8x8 checkers pattern
+    Dim clmniseven, Rowiseven As Double
+    For Row = 1 To 8
+        'a line of code here will run 8 times
+
+        For clmn = 1 To 8
+            clmniseven = clmn Mod 2
+            Rowiseven = Row Mod 2
+            If clmniseven = 0 And Rowiseven = 0 Then
+                Cells(Row, clmn).Interior.Color = vbBlack
+            
+            ElseIf clmniseven = 1 And Rowiseven = 1 Then
+                Cells(Row, clmn).Interior.Color = vbBlack
+            Else
+                Cells(Row, clmn).Interior.Color = vbRed
+       
+            End If
+
+        Next clmn
+    Next Row
+         
+End Sub
+
+
+
+
+
+
 Sub AllStocksAnalysis()
     '1. Format the output sheet on the "All Stocks Analysis" worksheet
     Worksheets("All Stocks Analysis").Activate
