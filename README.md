@@ -10,21 +10,21 @@ The purpose of this analysis was to refractore a script which analyzed the stock
 
 ## Results
 ### Stock Performance
-    There is a clear contrast in stock performance between the years 2017 and 2018. From 2017 to 2018, there were only two tickers, ENPH and RUN, that resulted in a positive return, as shown below.
+There is a clear contrast in stock performance between the years 2017 and 2018. From 2017 to 2018, there were only two tickers, ENPH and RUN, that resulted in a positive return, as shown below.
 	
 ![Image_Here](Resources/2017analysis.PNG)
 
 ![Image_here](Resources/2018Analysis.PNG)
 
 ### Run Time Performance
-    The performance of the original script's run time for 2017 was 1.054688 seconds and the refactored script for 2017 was 0.7734375 seconds.
+The performance of the original script's run time for 2017 was 1.054688 seconds and the refactored script for 2017 was 0.7734375 seconds.
     
 
 ![2017_run_time](Resources/2017_compared_run_time.png
 )
 
 
-    The performance of the original script's run time for 2018 was 1.179688 seconds and the refactored script for 2018 was 0.7929688 seconds.
+The performance of the original script's run time for 2018 was 1.179688 seconds and the refactored script for 2018 was 0.7929688 seconds.
 ![2018_run_time](Resources/2018_compared_run_time.png)
 
 
